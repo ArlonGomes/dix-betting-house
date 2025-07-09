@@ -1,0 +1,79 @@
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <title>🎰 Dix Betting House</title>
+  <link rel="stylesheet" href="./static/style.css">
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"></head>
+<body>
+  <script src="./static/script.js" defer></script>
+  <button id="botaoAdm" class="adm-discreto" onclick="abrirPainelLogin()">🔐 Login ADM</button>
+  <h1>🎰 Dix Betting House</h1>
+
+  <div class="box" id="painelUsuario">
+    <h3>Login do Jogador</h3>
+    <input type="text" id="usuarioNome" placeholder="Seu Nome">
+    <input type="text" id="usuarioID" placeholder="ID do Jogador">
+    <input type="text" id="usuarioTelefone" placeholder="Telefone para Contato">
+    <button onclick="loginUsuario()">Entrar no Cassino</button>
+    <div id="erroUsuario" style="color: red;"></div>
+  </div>
+
+  <div class="box hidden" id="painelLogin">
+    <h3>Login do Administrador</h3>
+    <input type="text" id="loginUsuario" placeholder="Usuário">
+    <input type="password" id="loginSenha" placeholder="Senha">
+    <button onclick="fazerLogin()">Entrar</button>
+    <div id="erroLogin" style="color: red;"></div>
+  </div>
+
+  <div class="box hidden" id="painelADM">
+    <h3>🎲 Painel do ADM</h3>
+    <input type="text" id="novoCupom" placeholder="Novo Cupom (conhecido)">
+    <button onclick="adicionarCupom()">Cadastrar Cupom</button>
+    <ul id="listaCupons"></ul>
+    <hr>
+    <h4>📩 Solicitações Recebidas:</h4>
+    <button onclick="exportarCSV()">⬇ Exportar CSV</button>
+    <ul id="listaSolicitacoes"></ul>
+  </div>
+
+  <div class="box hidden" id="painelDeposito">
+    <div class="info-user" id="infoUsuario"></div>
+    <h3>Depositar &amp; Validar Cupom</h3>
+    <input type="text" id="campoCupom" placeholder="Digite seu Cupom (se tiver)">
+    <input type="number" id="campoDeposito" placeholder="Quantas balas quer depositar?">
+    <button onclick="calcularRecebimento()">Calcular quanto recebo</button>
+    <div class="resultado" id="resultadoPublico"></div>
+  </div>
+
+<div class="box" style="margin-top: 40px;">
+  <h2 style="text-align: center; color: #fff;">🎮 Jogos Disponíveis</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding-top: 10px;">
+
+    <div style="text-align: center;">
+      <img src="./static/img/blackjack.png"🃏 Blackjack" style="width:100px; height:100px; border-radius: 8px;">
+      <div style="margin-top: 6px;">🃏 Blackjack</div>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="./static/img/dados.png" alt="🎲 Dados" style="width:100px; height:100px; border-radius: 8px;">
+      <div style="margin-top: 6px;">🎲 Dados</div>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="./static/img/roleta.png" alt="🎡 Roleta" style="width:100px; height:100px; border-radius: 8px;">
+      <div style="margin-top: 6px;">🎡 Roleta</div>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="./static/img/cacaniquel.png" alt="🎰 Caça-níquel" style="width:100px; height:100px; border-radius: 8px;">
+      <div style="margin-top: 6px;">🎰 Caça-níquel</div>
+    </div>
+    
+    <div style="text-align: center;">
+      <img src="./static/img/jackpot.png" alt="💎 Mega Jackpot" style="width:100px; height:100px; border-radius: 8px;">
+      <div style="margin-top: 6px;">💎 Mega Jackpot</div>
+    </div>
+    </div></div>
+
+
+<div id="cfcgvbmnee" style="display: block;"></div></body></html>
